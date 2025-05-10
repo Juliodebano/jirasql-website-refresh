@@ -25,6 +25,13 @@ interface MainLayoutProps {
 const MainLayout = ({ children }: MainLayoutProps) => {
   const isMobile = useIsMobile();
 
+  const handleToggleSidebar = () => {
+    const sidebarTrigger = document.querySelector('[data-sidebar="trigger"]') as HTMLElement;
+    if (sidebarTrigger) {
+      sidebarTrigger.click();
+    }
+  };
+
   return (
     <SidebarProvider defaultOpen={false}>
       <div className="w-full min-h-screen flex">
@@ -78,7 +85,7 @@ const MainLayout = ({ children }: MainLayoutProps) => {
                 variant="ghost" 
                 size="icon"
                 className="mr-2"
-                onClick={() => document.querySelector('[data-sidebar="trigger"]')?.click()}
+                onClick={handleToggleSidebar}
               >
                 <Menu className="h-5 w-5" />
                 <span className="sr-only">Menu</span>

@@ -28,7 +28,7 @@ const Index = () => {
           </div>
           <div className="md:w-1/2">
             <img 
-              src="/jira-sql-dashboard.png" 
+              src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b" 
               alt="JiraSQL Dashboard" 
               className="rounded-lg shadow-xl w-full"
             />
@@ -110,7 +110,7 @@ const Index = () => {
             
             <div className="text-center">
               <img 
-                src="/workflow-diagram.png" 
+                src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6" 
                 alt="JiraSQL Workflow" 
                 className="mx-auto rounded-lg shadow-lg max-w-full"
               />

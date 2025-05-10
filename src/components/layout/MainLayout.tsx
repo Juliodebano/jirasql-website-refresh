@@ -12,17 +12,21 @@ import {
   SidebarGroup,
   SidebarTrigger
 } from "@/components/ui/sidebar";
-import { Home, Settings, DollarSign } from "lucide-react";
+import { Home, Settings, DollarSign, Menu } from "lucide-react";
 import { Link } from "react-router-dom";
 import ContactForm from "../forms/ContactForm";
+import { useIsMobile } from "@/hooks/use-mobile";
+import { Button } from "@/components/ui/button";
 
 interface MainLayoutProps {
   children: ReactNode;
 }
 
 const MainLayout = ({ children }: MainLayoutProps) => {
+  const isMobile = useIsMobile();
+
   return (
-    <SidebarProvider>
+    <SidebarProvider defaultOpen={false}>
       <div className="w-full min-h-screen flex">
         <Sidebar variant="sidebar" collapsible="offcanvas">
           <SidebarHeader className="flex items-center justify-between px-4 py-2">
@@ -69,6 +73,18 @@ const MainLayout = ({ children }: MainLayoutProps) => {
         </Sidebar>
         <SidebarInset>
           <div className="flex flex-col min-h-full">
+            <header className="bg-white shadow-sm p-4 flex items-center">
+              <Button 
+                variant="ghost" 
+                size="icon"
+                className="mr-2"
+                onClick={() => document.querySelector('[data-sidebar="trigger"]')?.click()}
+              >
+                <Menu className="h-5 w-5" />
+                <span className="sr-only">Menu</span>
+              </Button>
+              <h1 className="text-xl font-semibold">JiraSQL</h1>
+            </header>
             <div className="flex-grow">
               {children}
             </div>

@@ -1,254 +1,194 @@
 
-import React from "react";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ArrowRight, Database, FileText, Settings, Shield } from "lucide-react";
-import { toast } from "@/hooks/use-toast";
+import MainLayout from "@/components/layout/MainLayout";
 
 const Index = () => {
-  const handleDemoRequest = () => {
-    toast({
-      title: "Demo request received",
-      description: "We'll contact you shortly with more information.",
-    });
-  };
-
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100">
-      {/* Hero Section */}
-      <section className="container mx-auto px-4 pt-20 pb-16 md:pt-32 md:pb-24">
-        <div className="flex flex-col md:flex-row items-center">
-          <div className="md:w-1/2 mb-8 md:mb-0 md:pr-8">
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 mb-4">
-              Execute SQL <span className="text-blue-600">directly from Jira</span>
+    <MainLayout>
+      {/* Contenu existant de la page d'accueil */}
+      <div className="container mx-auto py-12">
+        {/* Hero section */}
+        <div className="flex flex-col md:flex-row items-center justify-between gap-12 mb-16">
+          <div className="md:w-1/2">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
+              Simplifiez vos requêtes SQL directement dans Jira
             </h1>
-            <p className="text-xl text-slate-600 mb-8">
-              JiraSQL connects your Jira instance to your database, allowing team members to run pre-defined SQL scripts without direct database access.
+            <p className="text-lg text-gray-600 mb-8">
+              JiraSQL permet à vos utilisateurs d'exécuter des requêtes SQL prédéfinies 
+              directement depuis Jira sans accès direct à la base de données. 
+              Sécurisé, simple et puissant.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <button 
-                onClick={handleDemoRequest}
-                className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-colors flex items-center justify-center"
-              >
-                Request a Demo <ArrowRight className="ml-2 h-4 w-4" />
+              <button className="px-6 py-3 bg-blue-600 text-white rounded-lg shadow-lg hover:bg-blue-700 transition-colors">
+                Demander une démo
               </button>
-              <button className="bg-slate-200 hover:bg-slate-300 text-slate-800 font-medium py-3 px-6 rounded-lg transition-colors">
-                Learn More
+              <button className="px-6 py-3 bg-white border border-gray-300 text-gray-700 rounded-lg shadow-lg hover:bg-gray-50 transition-colors">
+                En savoir plus
               </button>
             </div>
           </div>
           <div className="md:w-1/2">
-            <div className="bg-white p-2 rounded-xl shadow-xl">
+            <img 
+              src="/jira-sql-dashboard.png" 
+              alt="JiraSQL Dashboard" 
+              className="rounded-lg shadow-xl w-full"
+            />
+          </div>
+        </div>
+        
+        {/* Features section */}
+        <div className="mb-20">
+          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
+            Pourquoi choisir JiraSQL ?
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-white p-6 rounded-lg shadow-md">
+              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Sécurité renforcée</h3>
+              <p className="text-gray-600">
+                Exécutez des requêtes SQL sans donner un accès direct à la base de données. 
+                Contrôlez qui peut exécuter quelles requêtes.
+              </p>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-md">
+              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Productivité améliorée</h3>
+              <p className="text-gray-600">
+                Fournissez aux équipes les données dont elles ont besoin sans passer par 
+                l'équipe technique pour chaque requête.
+              </p>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-md">
+              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Intégration native</h3>
+              <p className="text-gray-600">
+                S'intègre parfaitement à l'interface de Jira pour une expérience utilisateur fluide 
+                et sans interruption.
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        {/* How it works section */}
+        <div className="bg-gray-50 py-16 px-4 rounded-xl mb-20">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
+              Comment ça fonctionne
+            </h2>
+            
+            <div className="grid md:grid-cols-2 gap-8 mb-8">
+              <div className="bg-white p-6 rounded-lg shadow-md">
+                <h3 className="text-xl font-semibold mb-4 text-blue-600">Pour les administrateurs</h3>
+                <ol className="list-decimal space-y-3 ml-5">
+                  <li className="text-gray-700">Installer le plugin JiraSQL</li>
+                  <li className="text-gray-700">Configurer la connexion à la base de données</li>
+                  <li className="text-gray-700">Créer des requêtes SQL prédéfinies avec des variables</li>
+                  <li className="text-gray-700">Définir les permissions d'accès aux requêtes</li>
+                </ol>
+              </div>
+              <div className="bg-white p-6 rounded-lg shadow-md">
+                <h3 className="text-xl font-semibold mb-4 text-blue-600">Pour les utilisateurs</h3>
+                <ol className="list-decimal space-y-3 ml-5">
+                  <li className="text-gray-700">Accéder aux requêtes autorisées dans l'interface Jira</li>
+                  <li className="text-gray-700">Remplir les variables requises (le cas échéant)</li>
+                  <li className="text-gray-700">Exécuter la requête avec un simple clic</li>
+                  <li className="text-gray-700">Visualiser ou exporter les résultats</li>
+                </ol>
+              </div>
+            </div>
+            
+            <div className="text-center">
               <img 
-                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085" 
-                alt="JiraSQL Interface Preview" 
-                className="w-full h-auto rounded-lg"
+                src="/workflow-diagram.png" 
+                alt="JiraSQL Workflow" 
+                className="mx-auto rounded-lg shadow-lg max-w-full"
               />
             </div>
           </div>
         </div>
-      </section>
-      
-      {/* Features Section */}
-      <section className="bg-white py-16">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-slate-900">Key Benefits</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              {
-                title: "Security First",
-                description: "Secured access to database without direct credentials",
-                icon: <Shield className="h-8 w-8 text-blue-600" />
-              },
-              {
-                title: "User Friendly",
-                description: "No SQL knowledge required for end users",
-                icon: <FileText className="h-8 w-8 text-blue-600" />
-              },
-              {
-                title: "Configurable",
-                description: "Easily define and parameterize your SQL scripts",
-                icon: <Settings className="h-8 w-8 text-blue-600" />
-              },
-              {
-                title: "Data Access",
-                description: "Connect to any database through JDBC drivers",
-                icon: <Database className="h-8 w-8 text-blue-600" />
-              }
-            ].map((feature, index) => (
-              <Card key={index} className="bg-slate-50 border border-slate-100 hover:shadow-md transition-shadow">
-                <CardHeader>
-                  <div className="mb-2">{feature.icon}</div>
-                  <CardTitle className="text-xl">{feature.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-slate-600">{feature.description}</p>
-                </CardContent>
-              </Card>
-            ))}
+        
+        {/* Testimonials section */}
+        <div className="mb-20">
+          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
+            Ce que nos clients disent
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-white p-6 rounded-lg shadow-md">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                  <span className="text-blue-600 font-bold">JD</span>
+                </div>
+                <div>
+                  <h4 className="font-semibold">Jean Dupont</h4>
+                  <p className="text-sm text-gray-600">Responsable IT, TechCorp</p>
+                </div>
+              </div>
+              <p className="text-gray-600 italic">
+                "JiraSQL nous a permis de donner accès aux données essentielles tout en maintenant un 
+                contrôle strict sur les requêtes exécutées. Une solution élégante à un problème complexe."
+              </p>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-md">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                  <span className="text-blue-600 font-bold">SM</span>
+                </div>
+                <div>
+                  <h4 className="font-semibold">Sophie Martin</h4>
+                  <p className="text-sm text-gray-600">Chef de Projet, DataViz</p>
+                </div>
+              </div>
+              <p className="text-gray-600 italic">
+                "L'intégration dans Jira est parfaite. Nos analystes peuvent maintenant obtenir leurs données 
+                sans attendre l'équipe technique, ce qui a considérablement accéléré nos cycles."
+              </p>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-md">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                  <span className="text-blue-600 font-bold">PL</span>
+                </div>
+                <div>
+                  <h4 className="font-semibold">Pierre Leblanc</h4>
+                  <p className="text-sm text-gray-600">DBA, SecurBank</p>
+                </div>
+              </div>
+              <p className="text-gray-600 italic">
+                "En tant qu'administrateur de base de données, j'apprécie le contrôle fin sur les requêtes 
+                accessibles. La sécurité n'est plus un frein à l'accès aux données."
+              </p>
+            </div>
           </div>
         </div>
-      </section>
-      
-      {/* How It Works Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-slate-900">How JiraSQL Works</h2>
-          <Tabs defaultValue="admin" className="w-full max-w-4xl mx-auto">
-            <TabsList className="grid w-full grid-cols-2 mb-8">
-              <TabsTrigger value="admin">For Administrators</TabsTrigger>
-              <TabsTrigger value="users">For End Users</TabsTrigger>
-            </TabsList>
-            <TabsContent value="admin" className="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
-              <ol className="space-y-6">
-                <li className="flex gap-4">
-                  <div className="flex-none flex items-center justify-center w-8 h-8 rounded-full bg-blue-100 text-blue-600 font-bold">1</div>
-                  <div>
-                    <h3 className="font-medium text-lg">Install the Plugin</h3>
-                    <p className="text-slate-600">Install JiraSQL plugin from the Atlassian Marketplace into your Jira instance.</p>
-                  </div>
-                </li>
-                <li className="flex gap-4">
-                  <div className="flex-none flex items-center justify-center w-8 h-8 rounded-full bg-blue-100 text-blue-600 font-bold">2</div>
-                  <div>
-                    <h3 className="font-medium text-lg">Configure Database Connection</h3>
-                    <p className="text-slate-600">Set up database connection details securely in the admin panel.</p>
-                  </div>
-                </li>
-                <li className="flex gap-4">
-                  <div className="flex-none flex items-center justify-center w-8 h-8 rounded-full bg-blue-100 text-blue-600 font-bold">3</div>
-                  <div>
-                    <h3 className="font-medium text-lg">Define SQL Scripts</h3>
-                    <p className="text-slate-600">Create and parameterize SQL queries that users will be able to execute.</p>
-                  </div>
-                </li>
-              </ol>
-            </TabsContent>
-            <TabsContent value="users" className="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
-              <ol className="space-y-6">
-                <li className="flex gap-4">
-                  <div className="flex-none flex items-center justify-center w-8 h-8 rounded-full bg-blue-100 text-blue-600 font-bold">1</div>
-                  <div>
-                    <h3 className="font-medium text-lg">Access JiraSQL Panel</h3>
-                    <p className="text-slate-600">Navigate to the JiraSQL panel in your Jira project.</p>
-                  </div>
-                </li>
-                <li className="flex gap-4">
-                  <div className="flex-none flex items-center justify-center w-8 h-8 rounded-full bg-blue-100 text-blue-600 font-bold">2</div>
-                  <div>
-                    <h3 className="font-medium text-lg">Choose a Script</h3>
-                    <p className="text-slate-600">Select from available pre-defined SQL scripts configured by administrators.</p>
-                  </div>
-                </li>
-                <li className="flex gap-4">
-                  <div className="flex-none flex items-center justify-center w-8 h-8 rounded-full bg-blue-100 text-blue-600 font-bold">3</div>
-                  <div>
-                    <h3 className="font-medium text-lg">Fill Parameters & Run</h3>
-                    <p className="text-slate-600">Enter any required parameters and execute the script to see results instantly.</p>
-                  </div>
-                </li>
-              </ol>
-            </TabsContent>
-          </Tabs>
-        </div>
-      </section>
-      
-      {/* Testimonials Section */}
-      <section className="bg-slate-800 py-16 text-white">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">What Our Customers Say</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                quote: "JiraSQL has transformed how our team manages database queries. No more bottlenecks with the database team!",
-                author: "Sarah Johnson",
-                role: "Project Manager, TechCorp"
-              },
-              {
-                quote: "The ability to run predefined SQL queries directly from Jira has improved our team's productivity significantly.",
-                author: "Mark Williams",
-                role: "Development Lead, DataSphere"
-              },
-              {
-                quote: "As a database administrator, I love that I can give teams access to the data they need without compromising security.",
-                author: "Alex Rodriguez",
-                role: "DBA, Enterprise Solutions"
-              }
-            ].map((testimonial, index) => (
-              <Card key={index} className="bg-slate-700 border-none">
-                <CardContent className="pt-6">
-                  <p className="italic mb-4">"{testimonial.quote}"</p>
-                  <div>
-                    <p className="font-medium">{testimonial.author}</p>
-                    <p className="text-slate-300 text-sm">{testimonial.role}</p>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-      
-      {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready to empower your team?</h2>
+        
+        {/* CTA section */}
+        <div className="bg-blue-600 text-white py-16 px-4 rounded-xl text-center">
+          <h2 className="text-3xl font-bold mb-4">Prêt à simplifier l'accès à vos données ?</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Get started with JiraSQL today and streamline your database access workflow.
+            Rejoignez des centaines d'entreprises qui utilisent JiraSQL pour améliorer leur productivité
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <button 
-              onClick={handleDemoRequest}
-              className="bg-white text-blue-700 hover:bg-blue-50 font-medium py-3 px-8 rounded-lg transition-colors"
-            >
-              Request a Demo
+            <button className="px-8 py-3 bg-white text-blue-600 rounded-lg shadow-lg hover:bg-gray-100 transition-colors text-lg font-medium">
+              Demander une démo
             </button>
-            <button className="bg-transparent hover:bg-blue-700 border border-white text-white font-medium py-3 px-8 rounded-lg transition-colors">
-              View Documentation
+            <button className="px-8 py-3 bg-transparent border-2 border-white rounded-lg shadow-lg hover:bg-blue-700 transition-colors text-lg font-medium">
+              Télécharger
             </button>
           </div>
         </div>
-      </section>
-      
-      {/* Footer */}
-      <footer className="bg-slate-900 text-slate-300 py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div>
-              <h3 className="text-xl font-bold text-white mb-4">JiraSQL</h3>
-              <p className="mb-4">Execute SQL scripts directly from your Jira instance.</p>
-            </div>
-            <div>
-              <h4 className="font-bold text-white mb-4">Product</h4>
-              <ul className="space-y-2">
-                <li><a href="#" className="hover:text-white transition-colors">Features</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Pricing</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Documentation</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-bold text-white mb-4">Resources</h4>
-              <ul className="space-y-2">
-                <li><a href="#" className="hover:text-white transition-colors">Blog</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Knowledge Base</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Support</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-bold text-white mb-4">Company</h4>
-              <ul className="space-y-2">
-                <li><a href="#" className="hover:text-white transition-colors">About</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Contact</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-slate-700 mt-8 pt-8 text-center">
-            <p>&copy; {new Date().getFullYear()} JiraSQL. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
-    </div>
+      </div>
+    </MainLayout>
   );
 };
 

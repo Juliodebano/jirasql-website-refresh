@@ -12,7 +12,7 @@ import {
   SidebarGroup,
   SidebarTrigger
 } from "@/components/ui/sidebar";
-import { Home, Settings, DollarSign, Menu, Sparkles } from "lucide-react";
+import { Home, Settings, DollarSign, Menu } from "lucide-react";
 import { Link } from "react-router-dom";
 import ContactForm from "../forms/ContactForm";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -101,12 +101,6 @@ const MainLayout = ({ children }: MainLayoutProps) => {
                   />
                 </div>
                 <h1 className="text-xl font-bold text-white">JiraSQL</h1>
-              </div>
-              <div className="ml-auto flex items-center">
-                <div className="bg-white/10 backdrop-blur-sm px-4 py-1.5 rounded-full border border-white/20 flex items-center gap-1.5">
-                  <Sparkles className="h-4 w-4 text-amber-200" />
-                  <span className="text-sm font-medium text-white">Propulsé par l'IA</span>
-                </div>
               </div>
             </header>
             <div className="flex-grow">

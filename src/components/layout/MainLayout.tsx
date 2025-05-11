@@ -12,7 +12,7 @@ import {
   SidebarGroup,
   SidebarTrigger
 } from "@/components/ui/sidebar";
-import { Home, Settings, DollarSign, Menu } from "lucide-react";
+import { Home, Settings, DollarSign, Menu, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 import ContactForm from "../forms/ContactForm";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -40,7 +40,7 @@ const MainLayout = ({ children }: MainLayoutProps) => {
             <div className="flex items-center gap-2">
               <div className="bg-white rounded-full p-1 shadow-sm">
                 <img 
-                  src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=32&h=32&fit=crop" 
+                  src="/logo-jirasql.png" 
                   alt="JiraSQL Logo" 
                   className="w-7 h-7 rounded-full" 
                 />
@@ -95,20 +95,18 @@ const MainLayout = ({ children }: MainLayoutProps) => {
               <div className="flex items-center">
                 <div className="bg-white rounded-full p-0.5 shadow-sm mr-2">
                   <img 
-                    src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=24&h=24&fit=crop" 
+                    src="/logo-jirasql.png" 
                     alt="JiraSQL Logo" 
                     className="w-5 h-5 rounded-full" 
                   />
                 </div>
                 <h1 className="text-xl font-bold text-white">JiraSQL</h1>
               </div>
-              <div className="ml-auto flex items-center gap-2">
-                <Button size="sm" variant="ghost" className="text-white hover:bg-white/20">
-                  Documentation
-                </Button>
-                <Button size="sm" variant="secondary" className="bg-white/20 hover:bg-white/30 text-white border-none">
-                  Se connecter
-                </Button>
+              <div className="ml-auto flex items-center">
+                <div className="bg-white/10 backdrop-blur-sm px-4 py-1.5 rounded-full border border-white/20 flex items-center gap-1.5">
+                  <Sparkles className="h-4 w-4 text-amber-200" />
+                  <span className="text-sm font-medium text-white">Propulsé par l'IA</span>
+                </div>
               </div>
             </header>
             <div className="flex-grow">

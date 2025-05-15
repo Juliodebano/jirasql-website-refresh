@@ -31,6 +31,7 @@ const Navigation = () => {
     { href: '/equipe', label: 'L\'Équipe' },
     { href: '/portfolio', label: 'Portfolio' },
     { href: '/produits', label: 'Produits' },
+    { href: '/contact', label: 'Contact' },
     { href: '/reservation', label: 'Réservation' }
   ];
 

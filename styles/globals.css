@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,29 +7,85 @@
 
 @layer base {
   body {
-    @apply bg-white text-primary font-sans;
+    @apply bg-white text-primary font-sans selection:bg-accent/20 selection:text-accent;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-serif;
   }
+  
+  ::selection {
+    @apply bg-accent/20 text-accent;
+  }
+  
+  /* Élément décoratif vintage pour les sections */
+  .vintage-divider {
+    @apply relative flex items-center justify-center my-12;
+  }
+  
+  .vintage-divider::before, .vintage-divider::after {
+    @apply content-[''] h-[1px] w-16 bg-accent/30;
+  }
+  
+  .vintage-divider::before {
+    @apply mr-4;
+  }
+  
+  .vintage-divider::after {
+    @apply ml-4;
+  }
 }
 
 @layer components {
   .btn {
-    @apply px-6 py-2 rounded transition-colors;
+    @apply px-6 py-3 rounded-sm transition-all duration-300;
   }
 
   .btn-primary {
-    @apply bg-accent text-white hover:bg-opacity-90;
+    @apply bg-accent text-white hover:bg-white hover:text-accent border border-transparent hover:border-accent/30;
   }
 
   .btn-secondary {
-    @apply bg-secondary text-white hover:bg-opacity-90;
+    @apply bg-secondary text-white hover:bg-accent hover:text-white border border-transparent;
+  }
+  
+  /* Cadres décoratifs vintage */
+  .vintage-frame {
+    @apply relative border border-accent/10 p-8;
+  }
+  
+  .vintage-frame::before {
+    @apply content-[''] absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-accent/20 -z-10 -mt-4 -mr-4;
+  }
+  
+  .vintage-frame::after {
+    @apply content-[''] absolute bottom-0 left-0 w-16 h-16 border-b-2 border-l-2 border-accent/20 -z-10 -mb-4 -ml-4;
+  }
+  
+  /* Effet de survol pour les éléments interactifs */
+  .hover-underline {
+    @apply relative;
+  }
+  
+  .hover-underline::after {
+    @apply content-[''] absolute left-0 bottom-0 w-0 h-[1px] bg-accent transition-all duration-300;
+  }
+  
+  .hover-underline:hover::after {
+    @apply w-full;
+  }
+  
+  /* Effet de transition pour les cards */
+  .card-zoom {
+    @apply overflow-hidden;
+  }
+  
+  .card-zoom-image {
+    @apply transition-transform duration-700 hover:scale-110;
   }
 }
 
-/* Custom Scrollbar */
+/* Scrollbar personnalisée */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -38,26 +95,48 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: #C4933F;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #a67929;
 }
 
-/* Smooth Transitions */
+/* Transitions fluides */
 .transition-all {
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
+  transition-duration: 300ms;
 }
 
-/* Image Hover Effects */
-.image-hover {
-  transition: transform 0.3s ease;
+/* Animations pour les images et éléments interactifs */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-.image-hover:hover {
-  transform: scale(1.05);
-} 
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease forwards;
+}
+
+.slide-up {
+  animation: slideUp 0.8s ease forwards;
+}
+
+/* Gradients subtils pour les arrière-plans */
+.bg-gradient-soft {
+  background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(240,240,240,1) 100%);
+}
+
+/* Textures et effets de superposition */
+.texture-overlay {
+  background-image: url('/images/vintage-texture.png');
+  opacity: 0.05;
+  pointer-events: none;
+}

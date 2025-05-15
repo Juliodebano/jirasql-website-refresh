@@ -1,4 +1,5 @@
 
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
@@ -38,6 +39,20 @@ module.exports = {
       filter: {
         'grayscale-50': 'grayscale(0.5)',
       },
+      animation: {
+        'fade-in': 'fadeIn 0.8s ease forwards',
+        'slide-up': 'slideUp 0.8s ease forwards',
+      },
+      keyframes: {
+        fadeIn: {
+          'from': { opacity: '0' },
+          'to': { opacity: '1' }
+        },
+        slideUp: {
+          'from': { transform: 'translateY(20px)', opacity: '0' },
+          'to': { transform: 'translateY(0)', opacity: '1' }
+        }
+      }
     },
   },
   plugins: [],
@@ -48,4 +63,4 @@ module.exports = {
       translate: ['group-hover'],
     }
   },
-} 
+}
